@@ -1,17 +1,42 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>TODO WOO</title>
+</head>
+<body>
+    <header class="header">
+        {% if user.is_authenticated %}
+        <div>
+            <img src="{% static 'images/Todowoo.png' %}" alt="TODOWOO LOGO">
+            <div>
+                Welcome <span class="user-name">{{ user }}</span>
+            </div>
+            <form action="{% url 'logoutuser' %}" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Logout">
+            </form>
+        </div>
+    </header>
+    
+    <a href="{% url 'createtodo' %}">Create</a>
+    <a href="{% url 'currenttodos' %}">Current</a>
+    <a href="{% url 'completedtodos' %}">Completed</a>
+    
+    <form action="{% url 'logoutuser' %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout">
+    </form>
+    {% else %}
+    <a href="{% url 'signupuser' %}">Sign Up</a>
+    <a href="{% url 'loginuser' %}">Login</a>
+    {% endif %}
+    
+    {% block content %} {% endblock %}  
+</body>
+</html>
 
-{% if user.is_authenticated %}
-Logged in as {{ user }}
-<a href="{% url 'createtodo' %}">Create</a>
-<a href="{% url 'currenttodos' %}">Current</a>
-<a href="{% url 'completedtodos' %}">Completed</a>
 
-<form action="{% url 'logoutuser' %}" method="POST">
-    {% csrf_token %}
-    <input type="submit" value="Logout">
-</form>
-{% else %}
-<a href="{% url 'signupuser' %}">Sign Up</a>
-<a href="{% url 'loginuser' %}">Login</a>
-{% endif %}
-
-{% block content%} {% endblock %}
