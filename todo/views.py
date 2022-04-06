@@ -43,9 +43,9 @@ def loginuser(request):
 
 @login_required
 def logoutuser(request):
-    if request.method == 'POST':
-        logout(request)
-        return redirect('home')
+    # if request.method == 'POST':
+    logout(request)
+    return redirect('home')
 
 @login_required
 def createtodo(request):
