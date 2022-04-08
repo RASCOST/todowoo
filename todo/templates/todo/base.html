@@ -1,13 +1,11 @@
 {% load static %}
-{% load icons %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <script src="https://kit.fontawesome.com/0da84599b6.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <title>TODO WOO</title>
 </head>
 <body>
@@ -18,13 +16,16 @@
                 <div class="welcome">
                     Welcome <span class="user-name">{{ user }}</span>
                 </div>
-                <a href="{% url 'logoutuser' %}">{% 'pencil' %}</a>
+                <a href="{% url 'logoutuser' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
     </header>
-    
-    <a href="{% url 'createtodo' %}">Create</a>
-    <a href="{% url 'currenttodos' %}">Current</a>
-    <a href="{% url 'completedtodos' %}">Completed</a>
+    <nav class="nav-container">
+        <ul>
+            <li><a href="{% url 'createtodo' %}">Create</a></li>
+            <li><a href="{% url 'currenttodos' %}">Current</a></li>
+            <li><a href="{% url 'completedtodos' %}">Completed</a></li>
+        </ul>
+    </nav>
     
     <form action="{% url 'logoutuser' %}" method="POST">
         {% csrf_token %}
@@ -35,7 +36,8 @@
     <a href="{% url 'loginuser' %}">Login</a>
     {% endif %}
     
-    {% block content %} {% endblock %}  
+    {% block content %} {% endblock %}
+    
 </body>
 </html>
 
