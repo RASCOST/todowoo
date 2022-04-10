@@ -30,16 +30,27 @@
 .nav-container {
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid black;
+    background-color: #FFFDDE;
 }
 
 .nav-container ul {
     list-style: none;
     margin-bottom: 0;
+    padding-left: 0;
 }
 
-.nav-container ul li {
+.nav-container ul li{
     display: inline;
+    border-top: 1px solid black;
+}
+
+.nav-container ul li:first-child {
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.nav-container ul li:last-child {
     border-top: 1px solid black;
     border-left: 1px solid black;
     border-right: 1px solid black;
@@ -48,4 +59,9 @@
 .nav-container a {
     text-decoration: none;
     color: black;
+    padding: 10px;
+}
+
+.active-tab {
+    background-color: white;
 }

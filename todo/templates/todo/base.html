@@ -19,11 +19,10 @@
                 <a href="{% url 'logoutuser' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
     </header>
+    {{ url }}
     <nav class="nav-container">
         <ul>
-            <li><a href="{% url 'createtodo' %}">Create</a></li>
-            <li><a href="{% url 'currenttodos' %}">Current</a></li>
-            <li><a href="{% url 'completedtodos' %}">Completed</a></li>
+            <li {% if request.GET.view == 'todos' %} class="active-tab"{% endif %}><a href="{% url 'currenttodos' %}?view=todos">Current</a></li><li{% if request.GET.view == 'completed' %} class="active-tab" {% endif %}><a href="{% url 'completedtodos' %}?view=completed">Completed</a></li><li{% if request.GET.view == 'create' %} class="active-tab" {% endif %}><a href="{% url 'createtodo' %}?view=create">Create</a></li>
         </ul>
     </nav>
     
@@ -37,7 +36,7 @@
     {% endif %}
     
     {% block content %} {% endblock %}
-    
+    <script src="{% static 'js/tabs.js' %}"></script>
 </body>
 </html>
 
