@@ -8,9 +8,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <title>TODO WOO</title>
 </head>
-<body>
+<body> 
     <header class="header">
-        <img src="{% static 'images/Todowoo.png' %}" alt="TODOWOO LOGO">
+        <img src="{% static 'images/Todowoo.png' %}" width=100 height=50 alt="TODOWOO LOGO">
         {% if user.is_authenticated %}
             <div class="user-logged">
                 <div class="welcome">
@@ -19,24 +19,31 @@
                 <a href="{% url 'logoutuser' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
     </header>
-    {{ url }}
     <nav class="nav-container">
         <ul>
-            <li {% if request.GET.view == 'todos' %} class="active-tab"{% endif %}><a href="{% url 'currenttodos' %}?view=todos">Current</a></li><li{% if request.GET.view == 'completed' %} class="active-tab" {% endif %}><a href="{% url 'completedtodos' %}?view=completed">Completed</a></li><li{% if request.GET.view == 'create' %} class="active-tab" {% endif %}><a href="{% url 'createtodo' %}?view=create">Create</a></li>
+            <li {% if request.GET.view == 'todos' %} class="active-tab"{% endif %}>
+                <a href="{% url 'currenttodos' %}?view=todos">Current</a>
+            </li>
+            <li{% if request.GET.view == 'completed' %} class="active-tab" {% endif %}>
+                <a href="{% url 'completedtodos' %}?view=completed">Completed</a>
+            </li>
+            <li{% if request.GET.view == 'create' %} class="active-tab" {% endif %}>
+                <a href="{% url 'createtodo' %}?view=create">Create</a>
+            </li>
         </ul>
     </nav>
-    
-    <form action="{% url 'logoutuser' %}" method="POST">
-        {% csrf_token %}
-        <input type="submit" value="Logout">
-    </form>
     {% else %}
     <a href="{% url 'signupuser' %}">Sign Up</a>
     <a href="{% url 'loginuser' %}">Login</a>
     {% endif %}
     
-    {% block content %} {% endblock %}
-    <script src="{% static 'js/tabs.js' %}"></script>
+    <div>
+        {% block content %}{% endblock %}
+    </div>
+
+    <footer>
+        RASC©2022
+    </footer>
 </body>
 </html>
 
