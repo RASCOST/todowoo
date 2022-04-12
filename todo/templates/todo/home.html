@@ -1,4 +1,10 @@
 {% extends 'todo/base.html' %}
+{% load static %}
 
 {% block content %}
+<h2>Welcome to</h2>
+<img src="{% static 'images/Todowoo.png' %}" alt="TODOWOO LOGO">
+<p>With TODOWOO you can manage your todo's list every where and any time.</p>
+
+<p>Need to create an account <a href="{% url 'signupuser' %}">Signup</a> or if you have an account <a href="{% url 'loginuser' %}">Signin</a></p>
 {% endblock %}

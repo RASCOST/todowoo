@@ -10,7 +10,7 @@
 </head>
 <body> 
     <header class="header">
-        <img src="{% static 'images/Todowoo.png' %}" width=100 height=50 alt="TODOWOO LOGO">
+        <a href="{% url 'home' %}"><img src="{% static 'images/Todowoo.png' %}" width=100 height=50 alt="TODOWOO LOGO"></a>
             <div class="user-logged">
                 {% if user.is_authenticated %}
                 <div class="welcome">
@@ -41,7 +41,7 @@
     </nav>
     {% endif %}
     
-    <div>
+    <div class="content-container">
         {% block content %}{% endblock %}
     </div>
 
