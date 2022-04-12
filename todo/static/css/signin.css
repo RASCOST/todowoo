@@ -1,0 +1,7 @@
+.signin-container {
+    width: 50%;
+}
+
+.signin-error {
+    background-color: red;
+}
