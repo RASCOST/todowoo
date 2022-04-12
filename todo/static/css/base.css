@@ -19,6 +19,12 @@
     justify-content: flex-end;
 }
 
+.user-sign {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
 .header a {
     text-decoration: none;
     color: #FFFDDE;

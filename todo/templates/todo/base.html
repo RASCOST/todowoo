@@ -11,14 +11,21 @@
 <body> 
     <header class="header">
         <img src="{% static 'images/Todowoo.png' %}" width=100 height=50 alt="TODOWOO LOGO">
-        {% if user.is_authenticated %}
             <div class="user-logged">
+                {% if user.is_authenticated %}
                 <div class="welcome">
                     Welcome <span class="user-name">{{ user }}</span>
                 </div>
-                <a href="{% url 'logoutuser' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+                <a href="{% url 'logoutuser' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Signout</a>
+                {% else %}
+                <div class="user-sign">
+                    <a href="{% url 'signupuser' %}">Signup</a>
+                    <a href="{% url 'loginuser' %}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Signin</a>
+                </div>
+                {% endif %}
             </div>
     </header>
+    {% if user.is_authenticated %}
     <nav class="nav-container">
         <ul>
             <li {% if request.GET.view == 'todos' %} class="active-tab"{% endif %}>
@@ -32,9 +39,6 @@
             </li>
         </ul>
     </nav>
-    {% else %}
-    <a href="{% url 'signupuser' %}">Sign Up</a>
-    <a href="{% url 'loginuser' %}">Login</a>
     {% endif %}
     
     <div>
