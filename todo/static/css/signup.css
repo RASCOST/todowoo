@@ -1,4 +1,4 @@
-.signin-container {
+.signup-container {
     width: 25%;
     margin: auto;
     border-radius: 5%;
@@ -7,11 +7,11 @@
     margin-top: 5%;
 }
 
-.signin-container h5,h1{
+.signup-container h5,h1{
     margin: 0;
 }
 
-.signin-error {
+.signup-error {
     display: flex;
     background-color: rgb(250, 62, 4);
     border-radius: 5px;
@@ -21,7 +21,7 @@
     color: white;
 }
 
-.signin-header {
+.signup-header {
     display: flex;
     justify-content: space-between;
     align-items: center;

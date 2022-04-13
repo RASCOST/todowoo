@@ -1,16 +1,22 @@
 {% extends 'todo/base.html' %}
+{% load static %}
 
 {% block content %}
-    <div class="signin-container">
-        <h1>Signin</h1>
+    <section class="signin-container">
+        <div class="signin-header">
+            <h1>Signin</h1>
+            <img src="{% static 'images/Todowoo.png' %}" width=100 height=50 alt="TODOWOO LOGO">
+        </div>
         {% if error %}
-        <i class="fa-solid fa-triangle-exclamation"></i>
-        <h3 class="signin-error">{{ error }}</h2>
+        <div class="signin-error">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h5>{{ error }}</h2>
+        </div>
         {% endif %}
         <form action="" method="POST">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Signin</button>
+            <button type="submit"><i class="fa-solid fa-arrow-right-to-bracket"></i> Signin</button>
         </form>
-    </div>
+    </section>
 {% endblock %}
