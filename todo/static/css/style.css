@@ -1,5 +1,6 @@
 @import 'base.css';
 @import 'signin.css';
+@import 'signup.css';
 
 html, body {
     margin: 0;
