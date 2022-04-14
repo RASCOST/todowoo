@@ -1,0 +1,22 @@
+.currenttodos-container {
+    width: 50%;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.currenttodos-container ul {
+    padding-left: 0;
+}
+
+.currenttodos-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+}
+
+.currenttodos-container h3 {
+    text-align: center;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
