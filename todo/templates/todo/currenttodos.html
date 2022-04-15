@@ -3,18 +3,22 @@
 {% block content %}
 <section class="currenttodos-container">
     <h3>ToDo's List</h3>
-    <ul>
-        {% for todo in todos %}
-        <li>
-            <span>
-                {% if todo.important %}<b>{% endif %}{{todo.title}}{% if todo.important %}</b>{% endif %}
-                {% if todo.memo%} - {{ todo.memo }}{% endif %}
-            </span>
-            <a href="{% url 'viewtodo' todo.id %}">
-                <i class="fa-solid fa-eye"></i>
-            </a>
-        </li>
-        {% endfor %}
-    </ul>
+    <table>
+        <tbody>
+            {% for todo in todos %}
+            <tr>
+                <td>
+                    <span>
+                        {% if todo.important %}<b>{% endif %}{{todo.title}}{% if todo.important %}</b>{% endif %}
+                        {% if todo.memo%} - {{ todo.memo }}{% endif %}
+                    </span>
+                    <a href="{% url 'viewtodo' todo.id %}">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </section>
 {% endblock %}

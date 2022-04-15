@@ -4,16 +4,20 @@
     padding-top: 20px;
 }
 
-.currenttodos-container ul {
-    padding-left: 0;
+.currenttodos-container table {
+    width: 100%;
 }
 
-.currenttodos-container li {
+.currenttodos-container tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+
+.currenttodos-container td {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 10%;
-}
+    padding: 5px 5px;
+ }
 
 .currenttodos-container h3 {
     text-align: center;
