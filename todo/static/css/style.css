@@ -1,7 +1,7 @@
 @import 'base.css';
 @import 'signin.css';
 @import 'signup.css';
-@import 'currenttodos.css';
+@import 'todos.css';
 
 html, body {
     margin: 0;

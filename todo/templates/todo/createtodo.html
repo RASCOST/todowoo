@@ -1,11 +1,18 @@
 {% extends 'todo/base.html' %}
 
 {% block content %}
-<h1>Create</h1>
-<h2>{{ error }}</h2>
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Create</button>
-</form>
+<section class="todos-container">
+    <h1>Add a ToDo to yours list ✍🏻</h1>
+    {% if error %}
+    <div class="signin-error">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <h5>{{ error }}</h2>
+    </div>
+    {% endif %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Create</button>
+    </form>
+</section>
 {% endblock %}

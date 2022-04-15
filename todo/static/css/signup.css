@@ -1,13 +1,13 @@
 .signup-container {
     width: 65%;
-    margin: auto;
+    margin: 0 auto;
     border-radius: 20px;
     background-color: #D9D7F1;
     padding: 20px;
     margin-top: 5%;
 }
 
-.signup-container h5,h1{
+.signup-container h5 h1{
     margin: 0;
 }
 
