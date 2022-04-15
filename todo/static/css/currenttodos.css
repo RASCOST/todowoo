@@ -1,26 +1,31 @@
-.currenttodos-container {
+.todos-container {
     width: 50%;
     margin: auto;
     padding-top: 20px;
 }
 
-.currenttodos-container table {
+.todos-container table {
     width: 100%;
 }
 
-.currenttodos-container tr:nth-child(odd) {
+.todos-container tr:nth-child(odd) {
     background-color: #f2f2f2;
   }
 
-.currenttodos-container td {
+.todos-container td {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 5px;
  }
 
-.currenttodos-container h3 {
+.todos-container h3 {
     text-align: center;
     border-bottom: 1px solid gray;
     padding: 5px;
+}
+
+.todos-container p {
+    text-align: center;
+    font-size: 1.5rem;
 }

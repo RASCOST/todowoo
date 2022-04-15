@@ -1,16 +1,29 @@
 {% extends 'todo/base.html' %}
 
 {% block content %}
-Completed
-<ul>
-    {% for todo in todos %}
-    <li>
-        <a href="{% url 'viewtodo' todo.id %}">
-            {% if todo.important %}<b>{% endif %}{{todo.title}}{% if todo.important %}</b>{% endif %}
-            {% if todo.memo%} - {{ todo.memo }}{% endif %}
-            {{ todo.datecompleted|date:'M j Y H:i' }}
-        </a>
-    </li>
-    {% endfor %}
-</ul>
+<section class="todos-container">
+    <h3>Completed ToDo's</h3>
+    {% if not todos %}
+    <p>You don't have completed any ToDos yet 🤔 !</p>
+    {% else %}
+    <table>
+        <tbody>
+        {% for todo in todos %}
+        <tr>
+            <td>
+                <span>
+                    ➡️ {% if todo.important %}<b>{% endif %}{{todo.title}}{% if todo.important %}</b>{% endif %}
+                    {% if todo.memo%} - {{ todo.memo }}{% endif %}
+                    <small> - {{ todo.datecompleted|date:'M j Y H:i' }}</small>
+                </span>
+                <a href="{% url 'viewtodo' todo.id %}">
+                    <i class="fa-solid fa-eye"></i>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    {% endif %}
+        </tbody>
+    </table>
+</section>
 {% endblock %}
