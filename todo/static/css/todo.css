@@ -1,0 +1,9 @@
+.todo-container {
+    width: 30%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.todo-container button {
+    width: 100%;
+}

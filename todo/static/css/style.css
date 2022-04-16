@@ -2,6 +2,7 @@
 @import 'signin.css';
 @import 'signup.css';
 @import 'todos.css';
+@import 'todo.css';
 
 html, body {
     margin: 0;
