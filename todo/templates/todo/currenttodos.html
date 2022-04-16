@@ -12,7 +12,7 @@
                         ➡️ {% if todo.important %}<b>{% endif %}{{todo.title}}{% if todo.important %}</b>{% endif %}
                         {% if todo.memo%} - {{ todo.memo }}{% endif %}
                     </span>
-                    <a href="{% url 'viewtodo' todo.id %}">
+                    <a href="{% url 'viewtodo' todo.id %}" title="Show the ToDo">
                         <i class="fa-solid fa-eye"></i>
                     </a>
                 </td>
