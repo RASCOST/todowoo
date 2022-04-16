@@ -37,6 +37,11 @@
             <li{% if request.GET.view == 'create' %} class="active-tab" {% endif %}>
                 <a href="{% url 'createtodo' %}?view=create">Create</a>
             </li>
+            {% if 'todo' in request.path %}
+            <li class="active-tab">
+                Show
+            </li>
+            {% endif %}
         </ul>
     </nav>
     {% endif %}
