@@ -9,53 +9,59 @@
     <title>TODO WOO</title>
 </head>
 <body> 
-    <header class="header">
-        <a href="{% url 'home' %}"><img src="{% static 'images/Todowoo.png' %}" width=100 height=50 alt="TODOWOO LOGO"></a>
-            <div class="user-logged">
-                {% if user.is_authenticated %}
-                <div class="welcome">
-                    Welcome <span class="user-name">{{ user }}</span>
+    <div class="grid-container">
+        <header class="header">
+            <a href="{% url 'home' %}"><img src="{% static 'images/Todowoo.png' %}" width=100 height=50 alt="TODOWOO LOGO"></a>
+                <div class="user-logged">
+                    {% if user.is_authenticated %}
+                    <div class="welcome">
+                        Welcome <span class="user-name">{{ user }}</span>
+                    </div>
+                    <a href="{% url 'logoutuser' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Signout</a>
+                    {% else %}
+                    <div class="user-sign">
+                        <a href="{% url 'signupuser' %}">Signup</a>
+                        <a href="{% url 'loginuser' %}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Signin</a>
+                    </div>
+                    {% endif %}
                 </div>
-                <a href="{% url 'logoutuser' %}"><i class="fa-solid fa-arrow-right-from-bracket"></i> Signout</a>
-                {% else %}
-                <div class="user-sign">
-                    <a href="{% url 'signupuser' %}">Signup</a>
-                    <a href="{% url 'loginuser' %}"><i class="fa-solid fa-arrow-right-to-bracket"></i> Signin</a>
-                </div>
-                {% endif %}
-            </div>
-    </header>
-    {% if user.is_authenticated %}
-    <nav class="nav-container">
-        <ul>
-            <li {% if request.GET.view == 'todos' %} class="active-tab"{% endif %}>
-                <a href="{% url 'currenttodos' %}?view=todos">Current</a>
-            </li>
-            <li{% if request.GET.view == 'completed' %} class="active-tab" {% endif %}>
-                <a href="{% url 'completedtodos' %}?view=completed">Completed</a>
-            </li>
-            <li{% if request.GET.view == 'create' %} class="active-tab" {% endif %}>
-                <a href="{% url 'createtodo' %}?view=create">Create</a>
-            </li>
-            {% if 'todo' in request.path %}
-            <li class="active-tab">
-                Show
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
+        </header>
 
-    {% block content %}{% endblock %}
-    <footer class="footer-container">
-        <div>
-            <span>🖥️ RASC©2022 🖥️</span>
-            <div class="footer-icons-container">
-                <a href="https://github.com/RASCOST"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com/in/costa-ricardo/"><i class="fa-brands fa-linkedin"></i></a>
+        <section class="content">
+            {% if user.is_authenticated %}
+            <nav class="nav-container">
+                <ul>
+                    <li {% if request.GET.view == 'todos' %} class="active-tab"{% endif %}>
+                        <a href="{% url 'currenttodos' %}?view=todos">Current</a>
+                    </li>
+                    <li{% if request.GET.view == 'completed' %} class="active-tab" {% endif %}>
+                        <a href="{% url 'completedtodos' %}?view=completed">Completed</a>
+                    </li>
+                    <li{% if request.GET.view == 'create' %} class="active-tab" {% endif %}>
+                        <a href="{% url 'createtodo' %}?view=create">Create</a>
+                    </li>
+                    {% if 'todo' in request.path %}
+                    <li class="active-tab">
+                        Show
+                    </li>
+                    {% endif %}
+                </ul>
+            </nav>
+            {% endif %}
+
+                {% block content %}{% endblock %}
+        </section>
+
+        <footer class="footer-container">
+            <div>
+                <span>🖥️ RASC©2022 🖥️</span>
+                <div class="footer-icons-container">
+                    <a href="https://github.com/RASCOST"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com/in/costa-ricardo/"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 </html>
 

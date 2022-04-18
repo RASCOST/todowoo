@@ -7,4 +7,15 @@
 html, body {
     margin: 0;
     padding: 0;
+    height: 100vh;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 90px calc(100vh - 96px - 90px) 96px;
+    grid-template-areas: 
+    'header'
+    'content'
+    'footer';
 }
